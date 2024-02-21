@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>마인크래프트 종료 코드 분석기</title>
+    <script type="application/javascript">
+      const res = document.getElementById("result");
+      const inp = document.getElementById("in");
+      const nun = ["2","4","5","9"];
+      function go() {
+        if (!inp.value.match(/^\d+$/)) return res.innerHTML = "잘못된 값이 입력되었습니다. 확인 후 다시 분석해주세요.";
+        if (parseInt(inp.value) === 0) return res.innerHTML = "종료 코드 0은 일반적으로 정상 종료를 의미합니다.\n외부 원인으로 종료되진 않았는지 확인해주세요.";
+        let last = inp.value.substr(inp.value.length-1);
+        let is = nun.includes(last) ? "는" : "은"
+        return res.innerHTML = "종료 코드 " + inp.value + is + " 비정상 종료를 의미하며, 일반적으로 무작위 값으로 사용되기에 무의미한 값입니다.\n자세한 내용은 로그 파일을 확인해주세요."
+      }
+    </script>
+  </head>
+  <body>
+    <label for="in">표시된 종료 코드: </label>
+    <input id="in" type="number" placeholder="종료 코드를 입력하세요." min="-2147483648" max="2147483647">
+    <button onClick="go()">분석</button>
+    <br />
+    <textarea id="result" placeholder="야옹" rows="5" cols="120" readonly>입력 후 분석을 누르면 분석 결과가 표시됩니다.</textarea>
+  </body>
+</html>
