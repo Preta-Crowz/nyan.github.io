@@ -3,8 +3,12 @@
   <head>
     <title>마인크래프트 종료 코드 분석기</title>
     <script type="application/javascript">
-      const res = document.getElementById("result");
-      const inp = document.getElementById("in");
+      let res;
+      let inp;
+      function init() {
+        res = document.getElementById("result");
+        inp = document.getElementById("in");
+      }
       const nun = ["2","4","5","9"];
       function go() {
         if (!inp.value.match(/^\d+$/)) return res.innerHTML = "잘못된 값이 입력되었습니다. 확인 후 다시 분석해주세요.";
@@ -21,5 +25,6 @@
     <button onClick="go()">분석</button>
     <br />
     <textarea id="result" placeholder="야옹" rows="5" cols="120" readonly>입력 후 분석을 누르면 분석 결과가 표시됩니다.</textarea>
+    <br onLoad="init()" />
   </body>
 </html>
