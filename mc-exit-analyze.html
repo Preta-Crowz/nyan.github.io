@@ -12,7 +12,7 @@
       const nun = ["2","4","5","9"];
       function go() {
         if (!res || !inp) init();
-        if (!inp.value.match(/^\d+$/)) return res.innerHTML = "잘못된 값이 입력되었습니다. 확인 후 다시 분석해주세요.";
+        if (!inp.value.match(/^\-?\d+$/)) return res.innerHTML = "잘못된 값이 입력되었습니다. 확인 후 다시 분석해주세요.";
         if (parseInt(inp.value) === 0) return res.innerHTML = "종료 코드 0은 일반적으로 정상 종료를 의미합니다.\n외부 원인으로 종료되진 않았는지 확인해주세요.";
         let last = inp.value.substr(inp.value.length-1);
         let is = nun.includes(last) ? "는" : "은"
